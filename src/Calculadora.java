@@ -36,7 +36,7 @@ public class Calculadora implements CalculadoraGeneral {
                 }
                 else
                 {
-                    if(stack.empty() == false)
+                    if(!stack.empty())
                     {
                         int num1=stack.pop();
                         int num2=stack.pop();
@@ -44,15 +44,19 @@ public class Calculadora implements CalculadoraGeneral {
                         switch (caracter)
                         {
                             case '+':
+                                //stack.pop();
                                 stack.push(num1 + num2);
                                 break;
                             case '-':
+                                //stack.pop();
                                 stack.push(num1 - num2);
                                 break;
                             case '*':
+                                //stack.pop();
                                 stack.push(num1 * num2);
                                 break;
                             case '/':
+                                //stack.pop();
                                 stack.push(num1 / num2);
                                 break;
                             default:
@@ -69,7 +73,8 @@ public class Calculadora implements CalculadoraGeneral {
             System.out.println("No se pudo realizar el calulo por error: "+ e);
         }
 
-        return a;
+        String resultado= String.valueOf(stack.peek()) ;
+        return resultado;
     }
 
 
