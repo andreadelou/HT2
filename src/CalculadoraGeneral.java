@@ -3,5 +3,5 @@
 
 public interface CalculadoraGeneral {
 
-    public void Calculo(String t);
+    public String Calculo(String a);
 }

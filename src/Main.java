@@ -11,20 +11,32 @@ FEcha de modificación 2: 4/02/21
 */
 
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Main {
 
     public static void main( String[] args){
 
         Scanner scan = new Scanner(System.in);
-        verificar v = new verificar();
+        Calculadora calculadora = new Calculadora();
 
-
-        System.out.println("\n\n Bienvenido porfavor ingrese el calculo que desea realizar: ");
-        String t = scan.nextLine();
-
-
-
+        try {
+            File file = new File("datos.txt"); //busca el archivo llamado datos
+            while(scan.hasNextLine()){  //mientras tenga una siguiente linea el archivo
+                try {
+                    String a = scan.nextLine(); //lee la linea
+                    System.out.print(a); //muestra la expresión
+                    String b = calculadora.Calculo(a);//manda la expresion a la calculadora
+                    System.out.println(b);// muestra el resultado
+                } catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+            }
+        } catch (Exception e){
+            System.out.println("No se encontro el archivo");
+        }
 
     }
 }
+
